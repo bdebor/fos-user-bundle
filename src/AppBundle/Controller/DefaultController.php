@@ -13,9 +13,21 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $message = \Swift_Message::newInstance()
+            ->setSubject('sujet')
+            ->setFrom('pp@pp.pp')
+            ->setTo('oo@oo.oo')
+            ->setBody('content')
+        ;
+        $result = $this->get('mailer')->send($message);
+
+        dump($result);
+
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
         ));
     }
 }
+
+

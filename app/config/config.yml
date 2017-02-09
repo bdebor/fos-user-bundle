@@ -65,6 +65,9 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+    auth_mode: cram-md5
+    port: 2525
+
 # http://symfony.com/doc/current/bundles/FOSUserBundle/index.html
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
