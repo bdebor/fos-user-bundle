@@ -9,10 +9,5 @@
 {% endautoescape %}
 {% endblock %}
 {% block body_html %}
-<p>Bonjour {{ user.username }} !</p>
-<br>
-<p>Pour valider votre compte utilisateur, merci de cliquer sur <a href="{{ confirmationUrl }}">ce lien</a></p>
-<br>
-<p>Cordialement,</p>
-<p>L'équipe.</p>
+	{{ 'registration.email.message_html'|trans({'%username%': user.username, '%confirmationUrl%': confirmationUrl}, 'FOSUserBundle') }}
 {% endblock %}
