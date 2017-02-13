@@ -78,3 +78,21 @@ fos_user:
             enabled: true
     service:
         mailer: fos_user.mailer.twig_swift
+    change_password:
+        form:
+            type:               fos_user_change_password
+            handler:            fos_user.change_password.form.handler.default
+            name:               fos_user_change_password_form
+            validation_groups:  [ChangePassword, Default]
+    resetting:
+        token_ttl: 86400
+        email:
+            from_email: # Use this node only if you don't want the global email address for the resetting email
+                address:        oo@oo.oo
+                sender_name:    oo
+            template:   FOSUserBundle:Resetting:email.txt.twig
+        form:
+            type:               fos_user_resetting
+            handler:            fos_user.resetting.form.handler.default
+            name:               fos_user_resetting_form
+            validation_groups:  [ResetPassword, Default]
